@@ -1,4 +1,4 @@
-import { Link } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import localFont from "next/font/local";
@@ -12,9 +12,7 @@ export const Logo = () => {
     <Link href="/">
       <div className="hover:opacity-75 transition items-center gap-x-2 hidden md:flex">
         <Image src="/logo.svg" alt="TaskFlow" width={30} height={30} />
-        <p
-          className={cn("text-lg text-neutral-700 pb-1", headingFont.className)}
-        >
+        <p className={cn("text-lg text-neutral-700", headingFont.className)}>
           TaskFlow
         </p>
       </div>

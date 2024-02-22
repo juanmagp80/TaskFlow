@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
+    icons: [
+      {
+        url: "/logo.svg",
+        href: "/logo.svg",
+      },
+    ],
   },
 };
 
