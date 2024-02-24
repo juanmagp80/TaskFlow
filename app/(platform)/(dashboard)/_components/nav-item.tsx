@@ -1,5 +1,6 @@
 "use client";
 
+// Importamos las dependencias necesarias
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import { Activity, CreditCard, Layout, Settings } from "lucide-react";
@@ -13,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
+// Definimos el tipo de los datos de la organización
 export type Organization = {
   id: string;
   slug: string;
@@ -20,6 +22,7 @@ export type Organization = {
   name: string;
 };
 
+// Definimos las propiedades del componente NavItem
 interface NavItemProps {
   isExpanded: boolean;
   isActive: boolean;
@@ -27,15 +30,19 @@ interface NavItemProps {
   onExpand: (id: string) => void;
 }
 
+// Definimos el componente NavItem
 export const NavItem = ({
   isExpanded,
   isActive,
   organization,
   onExpand,
 }: NavItemProps) => {
+  // Usamos el hook useRouter para acceder a las funciones de enrutamiento de Next.js
   const router = useRouter();
+  // Usamos el hook usePathname para obtener la ruta actual
   const pathname = usePathname();
 
+  // Definimos las rutas que se mostrarán en el menú de navegación
   const routes = [
     {
       label: "Boards",
@@ -59,10 +66,12 @@ export const NavItem = ({
     },
   ];
 
+  // Definimos la función que se ejecutará cuando se haga clic en una ruta
   const onClick = (href: string) => {
     router.push(href);
   };
 
+  // Renderizamos el componente
   return (
     <AccordionItem value={organization.id} className="border-none">
       <AccordionTrigger
@@ -105,6 +114,7 @@ export const NavItem = ({
   );
 };
 
+// Definimos un componente de esqueleto para mostrar mientras los datos de la organización se están cargando
 NavItem.Skeleton = function SkeletonNavItem() {
   return (
     <div className="flex items-center gap-x-2">

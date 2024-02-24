@@ -1,4 +1,3 @@
-import { ClerkProvider } from "@clerk/nextjs";
 import Footer from "./_components/footer";
 import Navbar from "./_components/navbar";
 
